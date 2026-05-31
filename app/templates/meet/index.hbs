@@ -1,54 +1,35 @@
-<section class="section no-print">
+<section class="section no-padding-top">
     <div class="container is-upscaled-mobile">
-        <h1 class="title no-print">{{this.model.meet.name}}</h1>
-        <nav class="level no-print is-mobile">
-            <div class="left-level">
-                <button class="button no-print is-secondary" {{action "togglePrintPreview"}}>
-                    {{if this.displayPrintPreview "View Entries" "View Print Page"}}
-                </button>
-                {{#link-to "meet.input.division.name" 1 class="button is-primary"}}
-                    Input meet results
-                {{/link-to}}
-            </div>
-        </nav>
+        {{#if this.model.entries.length}}
+            <table class="table is-fullwidth">
+                <tbody>
+                    {{#each this.model.entries as |entry|}}
+                        <tr>
+                            <td>
+                                <span class="tag is-medium">{{entry.TeamCode}}</span>
+                            </td>
+                            <td>
+                                {{entry.FirstName}} {{entry.LastName}}
+                            </td>
+                            <td>
+                                <button {{action "showDetails" entry}} type="button" class="button is-pulled-right">
+                                    <span class="icon has-text-info">
+                                        <FaIcon @icon="info-circle" size="lg" />
+                                    </span>
+                                </button>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        {{else}}
+            <h3>No Entries</h3>
+            <LinkTo @route="import">
+                Import a Meet
+            </LinkTo>
+        {{/if}}
     </div>
 </section>
-{{#if this.displayPrintPreview}}
-    <PrintPreview @entries={{this.model.entries}} />
-{{else}}
-    <section class="section no-padding-top">
-        <div class="container is-upscaled-mobile">
-            {{#if this.model.entries.length}}
-                <table class="table is-fullwidth">
-                    <tbody>
-                        {{#each this.model.entries as |entry|}}
-                            <tr>
-                                <td>
-                                    <span class="tag is-medium">{{entry.TeamCode}}</span>
-                                </td>
-                                <td>
-                                    {{entry.FirstName}} {{entry.LastName}}
-                                </td>
-                                <td>
-                                    <button {{action "showDetails" entry}} class="button is-pulled-right">
-                                        <span class="icon has-text-info">
-                                            {{fa-icon "info-circle" size="lg"}}
-                                        </span>
-                                    </button>
-                                </td>
-                            </tr>
-                        {{/each}}
-                    </tbody>
-                </table>
-            {{else}}
-                <h3>No Entries</h3>
-                {{#link-to "import"}}
-                    Import a Meet
-                {{/link-to}}
-            {{/if}}
-        </div>
-    </section>
-{{/if}}
 <Modal @isActive={{this.isActive}} @close={{action this.hideDetails}}
     @title="{{this.activeEntry.FirstName}} {{this.activeEntry.LastName}}">
     <div class="content">

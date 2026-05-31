@@ -9,7 +9,11 @@ export default class MeetReviewDivisionRoute extends Route {
     var model = this.modelFor('meet');
     set(model, 'meet_id', model.meet.id);
     set(model, 'entries', this.db.getEntries(model.meet.id, division_id));
-    set(model, 'results', this.db.getResultsByDivisionNum(model.meet.id, division_id));
+    set(
+      model,
+      'results',
+      this.db.getResultsByDivisionNum(model.meet.id, division_id)
+    );
     return hash(model);
   }
 }

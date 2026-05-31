@@ -7,7 +7,6 @@
  */
 export default function groupBy(arr, criteria) {
   return arr.reduce(function (obj, item) {
-
     // Check if the criteria is a function to run on the item or a property of it
     var key = typeof criteria === 'function' ? criteria(item) : item[criteria];
 
@@ -21,6 +20,5 @@ export default function groupBy(arr, criteria) {
 
     // Return the object to the next item in the loop
     return obj;
-
   }, {});
 }

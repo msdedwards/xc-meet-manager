@@ -2,7 +2,7 @@
     Scan Bib Number Barcodes
 </h1>
 <Detector @type="barcode" @onDetection={{action this.onDetection}} />
-<button class="button" {{action this.inputManually}}>
+<button class="button" type="button" {{action this.inputManually}}>
     Input Bib Number Manually
 </button>
 <div class="column">
@@ -11,8 +11,8 @@
             <h3 class="title">Results</h3>
         </div>
         <div class="right-level">
-            <button class="button" {{action "reverseOrder"}}>
-                {{fa-icon (if this.isResultsReversed "sort-numeric-up" "sort-numeric-down")}}
+            <button class="button" type="button" {{action "reverseOrder" }}>
+                <FaIcon @icon={{if this.isResultsReversed "sort-numeric-up" "sort-numeric-down" }} />
             </button>
         </div>
     </nav>
@@ -30,9 +30,9 @@
                         {{result.entry.FirstName}}
                     </td>
                     <td>
-                        <button class="button" {{action "swapUp" result index}}>
+                        <button class="button" type="button" {{action "swapUp" result index}}>
                             <span class="icon">
-                                {{fa-icon "chevron-circle-up"}}
+                                <FaIcon @icon="chevron-circle-up" />
                             </span>
                         </button>
                     </td>

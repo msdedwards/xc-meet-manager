@@ -1,1 +1,19 @@
+<section class="section no-print">
+  <div class="container is-upscaled-mobile">
+    <h1 class="title no-print">{{this.model.meet.name}}</h1>
+    <nav class="level no-print is-mobile">
+      <div class="left-level">
+        <LinkTo @route="meet.print" class="button no-print is-secondary" type="button">
+          View Print Page
+        </LinkTo>
+        <button class="button no-print is-secondary" type="button" {{action "togglePrintPreview" }}>
+          {{if this.displayPrintPreview "View Entries" "View Print Page"}}
+        </button>
+        <LinkTo @route="meet.input.division.name" @model={{1}} class="button is-primary">
+          Input meet results
+        </LinkTo>
+      </div>
+    </nav>
+  </div>
+</section>zc
 {{outlet}}

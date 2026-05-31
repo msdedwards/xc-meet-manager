@@ -4,9 +4,9 @@
     </div>
     <div class="level-right">
         <div class="level-item">
-            {{#link-to "import" class="button is-primary"}}
+            <LinkTo @route="import" class="button is-primary">
                 Import a new meet
-            {{/link-to}}
+            </LinkTo>
         </div>
     </div>
 </nav>
@@ -15,9 +15,9 @@
         <tr>
             {{#each this.model as |item|}}
                 <td>
-                    {{#link-to "meet" item.id}}
+                    <LinkTo @route="meet" @model={{item.id}}>
                         {{item.name}}
-                    {{/link-to}}
+                    </LinkTo>
                 </td>
             {{/each}}
         </tr>

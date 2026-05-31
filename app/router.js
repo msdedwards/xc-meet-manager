@@ -1,13 +1,14 @@
-import EmberRouter from "@ember/routing/router";
-import config from "./config/environment";
+import EmberRouter from '@ember/routing/router';
+import config from 'xc-meet-manager/config/environment';
 
-const Router = EmberRouter.extend({
-  location: config.locationType,
-  rootURL: config.rootURL
-});
+class Router extends EmberRouter {
+  location = config.locationType;
+  rootURL = config.rootURL;
+}
 
 /** @this RouterDSL */
 Router.map(function () {
+  this.route('print');
   this.route('meets', function () {
     this.route('download');
   });
@@ -27,8 +28,7 @@ Router.map(function () {
       });
     });
     this.route('review', function () {
-      this.route('division', { path: 'division/:division_id' }, function () {
-      });
+      this.route('division', { path: 'division/:division_id' }, function () {});
     });
     this.route('download');
   });

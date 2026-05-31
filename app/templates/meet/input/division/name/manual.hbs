@@ -1,5 +1,5 @@
-{{#link-to "meet.input.division.time" this.model}}
+<LinkTo @route="meet.input.division.time" @model={{this.model}}>
     Next Input Time & Place
-{{/link-to}}
+</LinkTo>
 <h1 class="subtitle">Input Bib Numbers Manually</h1>
 <NameManual @entries={{this.model.entries}} @results={{this.model.results}} />

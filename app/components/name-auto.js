@@ -1,4 +1,4 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { action, set } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
@@ -13,7 +13,7 @@ export default class NameAutoComponent extends Component {
   @tracked displayPlaceWarning = false;
   @tracked isActive = false;
   @tracked activeEntries = [];
-  @tracked activeTitle = "Scanned Barcodes";
+  @tracked activeTitle = 'Scanned Barcodes';
 
   get place() {
     return this.results.length + 1;
@@ -38,7 +38,7 @@ export default class NameAutoComponent extends Component {
   @action
   inputManually() {
     this.activeEntries = this.entries;
-    this.activeTitle = "Manual Entry";
+    this.activeTitle = 'Manual Entry';
     this.isActive = true;
   }
 
@@ -53,7 +53,7 @@ export default class NameAutoComponent extends Component {
       });
       if (entries.length) {
         this.activeEntries = entries;
-        this.activeTitle = "Scanned Barcodes";
+        this.activeTitle = 'Scanned Barcodes';
         this.isActive = true;
       }
     }
@@ -64,7 +64,7 @@ export default class NameAutoComponent extends Component {
     let resultId = await this.db.addResult({
       place: this.place,
       time: '',
-      entry: this.activeEntry
+      entry: this.activeEntry,
     });
     this.activeEntry.resultId = resultId;
     this.db.updateEntry(this.activeEntry);

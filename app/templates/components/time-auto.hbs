@@ -1,7 +1,7 @@
 <h1 class="subtitle">Scan Timer Paper</h1>
 
 <Detector @type="text" @onDetection={{action this.onDetection}} />
-<button class="button" {{action this.inputManually}}>
+<button class="button" type="button" {{action this.inputManually}}>
     Input Time Manually
 </button>
 <nav class="level no-print is-mobile">
@@ -9,18 +9,18 @@
         <h3 class="title">Results</h3>
     </div>
     <div class="right-level">
-        <button class="button" {{action "reverseOrder"}}>
-            {{fa-icon (if this.isResultsReversed "sort-numeric-up" "sort-numeric-down")}}
+        <button class="button" type="button" {{action "reverseOrder" }}>
+            <FaIcon @icon={{if this.isResultsReversed "sort-numeric-up" "sort-numeric-down" }} />
         </button>
     </div>
 </nav>
 {{#unless this.results.length}}
     <div class="notification is-warning">
-        {{fa-icon "exclamation-triangle" classNames="is-large fa-lg"}}&nbsp;No Results
+        <FaIcon @icon="exclamation-triangle" classNames="is-large fa-lg" />&nbsp;No Results
     </div>
 {{/unless}}
 <div class="content">
-    <nav class="panel results {{if this.isResultsReversed "reversed"}}">
+    <nav class="panel results {{if this.isResultsReversed " reversed"}}">
         {{#each this.results as |result|}}
             <div class="panel-block">
                 {{result.place}}. {{result.entry.FirstName}} {{result.entry.LastName}}
@@ -46,7 +46,7 @@
         <div class="content">
             <nav class="panel results">
                 <div class="panel-block">
-                    <button class="button is-fullwidth is-primary" {{action this.saveTimes}}>
+                    <button class="button is-fullwidth is-primary" type="button" {{action this.saveTimes}}>
                         Save Selected Times
                     </button>
                 </div>
@@ -58,8 +58,8 @@
                                     <Input class="input" type="text" @value={{time.formatted}} />
                                 </div>
                                 <div class="control">
-                                    <button class="button is-info" {{action this.saveTime time index}}>
-                                        {{fa-icon "save"}}
+                                    <button class="button is-info" type="button" {{action this.saveTime time index}}>
+                                        <FaIcon @icon="save" />
                                     </button>
                                 </div>
                             </div>
@@ -71,8 +71,8 @@
                                 <label class="checkbox">
                                     <Input @type="checkbox" @checked={{time.isSelected}} />
                                 </label>
-                                <button class="button" {{action this.editTime time}}>
-                                    {{fa-icon "edit"}}
+                                <button class="button" type="button" {{action this.editTime time}}>
+                                    <FaIcon @icon="edit" />
                                 </button>
                             </span>
                         {{else}}
@@ -85,15 +85,15 @@
                                 No Result for place
                             {{/if}}
                             <span>
-                                <button class="button" {{action this.editTime time}}>
-                                    {{fa-icon "edit"}}
+                                <button class="button" type="button" {{action this.editTime time}}>
+                                    <FaIcon @icon="edit" />
                                 </button>
                             </span>
                         {{/if}}
                     </div>
                 {{/each}}
                 <div class="panel-block">
-                    <button class="button is-fullwidth is-primary" {{action this.saveTimes}}>
+                    <button class="button is-fullwidth is-primary" type="button" {{action this.saveTimes}}>
                         Save Times
                     </button>
                 </div>

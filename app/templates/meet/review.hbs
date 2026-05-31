@@ -5,9 +5,9 @@
                 <h1 class="title">Review Results</h1>
             </div>
             <div class="right-level">
-                {{#link-to "meet.download" this.model class="button is-primary"}}
+                <LinkTo @route="meet.download" @model={{this.model}} class="button is-primary">
                     Download Results
-                {{/link-to}}
+                </LinkTo>
             </div>
         </nav>
         {{outlet}}

@@ -5,17 +5,28 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
     sassOptions: {
-      extension: 'sass'
+      extension: 'sass',
     },
     fingerprint: {
-      extensions: ['js', 'css', 'png', 'jpg', 'map', 'webp', 'webmanifest', 'svg', 'woff', 'woff2', 'eot', 'ttf'],
+      extensions: [
+        'js',
+        'css',
+        'png',
+        'jpg',
+        'map',
+        'webp',
+        'webmanifest',
+        'svg',
+        'woff',
+        'woff2',
+        'eot',
+        'ttf',
+      ],
     },
     'bundle-analyzer': {
       ignoreTestFiles: true,
-      ignore: [
-        '*-fastboot'
-      ]
-    }
+      ignore: ['*-fastboot'],
+    },
   });
 
   // app.import('node_modules/animate.css/animate.css');

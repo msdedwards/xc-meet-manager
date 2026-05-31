@@ -11,17 +11,19 @@
         Type in bib numbers of the runners in the order they finished to associate their name with the place they
         finished in the race.
     </p>
-    {{#link-to "meet.input.division.name.manual" this.model "1"class="button is-primary is-large is-fullwidth"}}
+    <LinkTo @route="meet.input.division.name.manual" models={{array this.model "1" }}
+        class="button is-primary is-large is-fullwidth">
         Input Manually
-    {{/link-to}}
+    </LinkTo>
     <hr>
     <h1 class="subtitle is-5">Scan Bib Number Barcodes</h1>
     <p>
         Use your phone to scan the barcodes on the runners' bibs in the order they finished to associate their names
         with the place they finished in the race.
     </p>
-    {{#link-to "meet.input.division.name.auto" this.model "1" class="button is-primary is-large is-fullwidth"}}
+    <LinkTo @route="meet.input.division.name.auto" @models={{array this.model "1" }}
+        class="button is-primary is-large is-fullwidth">
         Scan Barcodes
-    {{/link-to}}
+    </LinkTo>
     <hr>
 </div>

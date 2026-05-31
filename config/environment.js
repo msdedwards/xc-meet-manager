@@ -5,26 +5,14 @@ module.exports = function (environment) {
     modulePrefix: 'xc-meet-manager',
     environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'history',
+    fontawesome: {
+      defaultPrefix: 'fas', // light icons
+    },
     'ember-font-awesome': {
       removeUnusedIcons: environment === 'production',
       fontFormats: ['svg'],
       useScss: true,
-    },
-    fontawesome: {
-      defaultPrefix: 'fas',
-      icons: {
-        'free-solid-svg-icons': [
-          'sort-numeric-up',
-          'sort-numeric-down',
-          'chevron-circle-up',
-          'chevron-circle-right',
-          'exclamation-triangle',
-          'save',
-          'edit',
-          'info-circle'
-        ]
-      }
     },
     EmberENV: {
       // ENABLE_ALL_FEATURES: true,
@@ -38,14 +26,14 @@ module.exports = function (environment) {
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
-        Date: false
-      }
+        Date: false,
+      },
     },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
   };
 
   if (environment === 'development') {

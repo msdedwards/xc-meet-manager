@@ -1,0 +1,10 @@
+{{#each this.pagedEntries as |page|}}
+    <div class="print-header"></div>
+    <div class="page">
+        {{#each page as |entry|}}
+        <div class="print-label">
+            <h3>{{@entry.name}} - {{@entry.shirtSize}}, {{@entry.group}}</h3>
+            </div>
+        {{/each}}
+    </div>
+{{/each}}

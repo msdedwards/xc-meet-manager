@@ -3,10 +3,10 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module('Integration | Modifier | camera-source', function(hooks) {
+module('Integration | Modifier | camera-source', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it modifies elements', async function(assert) {
+  test('it modifies elements', async function (assert) {
     await render(hbs`<div {{cameraSource}}>Button Text</div>`);
 
     const element = find('div');

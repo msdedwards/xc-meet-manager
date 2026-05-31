@@ -2,9 +2,9 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 
 export default class MeetsRoute extends Route {
-    @service db;
+  @service db;
 
-    model() {
-        return this.db.getAllMeets();
-    }
+  model() {
+    return this.db.getAllMeets();
+  }
 }

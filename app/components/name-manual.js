@@ -1,4 +1,4 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { action, set } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
@@ -28,16 +28,14 @@ export default class NameManualComponent extends Component {
   }
 
   @action
-  finishPlaceInput() {
-
-  }
+  finishPlaceInput() {}
 
   @action
   async submit(entry, index) {
     let resultId = await this.db.addResult({
       place: this.place,
       time: '',
-      entry: entry
+      entry: entry,
     });
     entry.resultId = resultId;
     this.db.updateEntry(entry);

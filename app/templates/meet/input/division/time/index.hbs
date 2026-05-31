@@ -7,16 +7,18 @@
     </p>
     <h1 class="subtitle is-5">Input Time Manually</h1>
     <p>Input the times, manually, copy paste, scan timer paper</p>
-    {{#link-to "meet.input.division.time.manual" this.model "1" class="button is-primary is-large is-fullwidth"}}
+    <LinkTo @route="meet.input.division.time.manual" @models={{array this.model "1" }}
+        class="button is-primary is-large is-fullwidth">
         Input Manually
-    {{/link-to}}
+    </LinkTo>
     <hr>
     <h1 class="subtitle is-5">Scan Timer Paper</h1>
     <p>
         Use your phone to scan the timer paper from your compatible Seiko timer to associate
     </p>
-    {{#link-to "meet.input.division.time.auto" this.model "1" class="button is-primary is-large is-fullwidth"}}
+    <LinkTo @route="meet.input.division.time.auto" @model={{array this.model "1" }}
+        class="button is-primary is-large is-fullwidth">
         Scan Timer Paper
-    {{/link-to}}
+    </LinkTo>
     <hr>
 </div>

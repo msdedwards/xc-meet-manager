@@ -2,9 +2,9 @@
     <ul>
         {{#each this.model.meet.divisions as |division|}}
             <li>
-                {{#link-to this.target.currentPath division activeClass="is-active" tagName="li"}}
-                    <a>Race {{division}}</a>
-                {{/link-to}}
+                <LinkTo @route={{this.target.currentPath}} @model={{division}} activeClass="is-active" tagName="li">
+                    <a href>Race {{division}}</a>
+                </LinkTo>
             </li>
         {{/each}}
     </ul>

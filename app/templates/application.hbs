@@ -1,23 +1,23 @@
-<nav class="navbar is-dark no-print" role="navigation" aria-label="main navigation">
+<nav class="navbar is-dark no-print" aria-label="main navigation">
     <div class="navbar-brand">
-        {{#link-to "index" class="navbar-item no-print" activeClass="is-active"}}
+        <LinkTo @route="index" class="navbar-item no-print" activeClass="is-active">
             XC Meet Manager
-        {{/link-to}}
-        <a role="button" {{action "toggle"}} class="navbar-burger burger {{if this.isActive "is-active"}}"
+        </LinkTo>
+        <a role="button" href {{action "toggle" }} class="navbar-burger burger {{if this.isActive " is-active"}}"
             aria-label="menu" aria-expanded={{this.isActive}} data-target="main-menu">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
         </a>
     </div>
-    <div id="main-menu" class="navbar-menu {{if this.isActive "is-active"}}">
+    <div id="main-menu" class="navbar-menu {{if this.isActive " is-active"}}">
         <div class="navbar-start">
-            {{#link-to "meets" class="navbar-item no-print" activeClass="is-active" }}
+            <LinkTo @route="meets" class="navbar-item no-print" activeClass="is-active">
                 Meets
-            {{/link-to}}
-            {{#link-to "import" class="navbar-item no-print" activeClass="is-active" }}
+            </LinkTo>
+            <LinkTo @route="import" class="navbar-item no-print" activeClass="is-active">
                 Import a Meet
-            {{/link-to}}
+            </LinkTo>
         </div>
     </div>
 </nav>
@@ -32,7 +32,7 @@
             <img src="/made-with-bulma.png" alt="Made with Bulma" width="256" height="48">
         </a>
         <a href="https://emberjs.com">
-            <img src="/Ember-Logo.svg" alt="Ember.js logo">
+            <img src="/Ember-Logo.svg" alt="Ember.js">
         </a>
     </div>
 </footer>

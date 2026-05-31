@@ -26,7 +26,7 @@
     </table>
 {{else}}
     <h3>No results for this race</h3>
-    {{#link-to "meet.input.division.name" 1 class="button is-primary"}}
+    <LinkTo @route="meet.input.division.name" @model={{1}} class="button is-primary">
         Input meet results
-    {{/link-to}}
+    </LinkTo>
 {{/if}}

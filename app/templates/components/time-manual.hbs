@@ -3,8 +3,8 @@
     <div class="field">
         <div class="control">
             <label class="label" for="place">Place</label>
-            <Input class="input {{if this.displayPlaceWarning "is-danger" ""}}" id="place" @value={{this.place}}
-                {{on "change" (fn this.placeChanged)}} type="number" max={{this.results.length}} />
+            <Input class="input {{if this.displayPlaceWarning " is-danger" "" }}" id="place" @value={{this.place}}
+                {{on "change" this.placeChanged}} type="number" max={{this.results.length}} />
             {{#if this.displayPlaceWarning}}
                 <p class="help is-danger">Place is greater than number of results</p>
             {{/if}}
@@ -19,21 +19,21 @@
         {{#unless this.hideHours}}
             <div class="control">
                 <label for="time" class="label">Hours</label>
-                <Input id="hours" class="input" @value={{this.hours}} @type="number" @min="0" @max="99" />
+                <Input id="hours" class="input" @value={{this.hours}} @type="number" min="0" max="99" />
             </div>
         {{/unless}}
         <div class="control">
             <label for="minutes" class="label">Minutes</label>
-            <Input id="minutes" class="input" @value={{this.minutes}} @type="number" @min="0" @max="59"
-                @maxlength="2" />
+            <Input id="minutes" class="input" @value={{this.minutes}} @type="number" min="0" max="59"
+                maxlength="2" />
         </div>
         <div class="control">
             <label for="seconds" class="label">Seconds</label>
-            <Input id="seconds" class="input" @value={{this.seconds}} @type="number" @min="0" @max="59"
-                @maxlength="2" />
+            <Input id="seconds" class="input" @value={{this.seconds}} @type="number" min="0" max="59"
+                maxlength="2" />
         </div>
         <div class="control">
-            <button class="button is-primary" {{action "submit"}}>Add</button>
+            <button class="button is-primary" type="button" {{action "submit" }}>Add</button>
         </div>
     </div>
 </form>
@@ -43,18 +43,18 @@
         <h3 class="title">Results</h3>
     </div>
     <div class="right-level">
-        <button class="button" {{action "reverseOrder"}}>
-            {{fa-icon (if this.isResultsReversed "sort-numeric-up" "sort-numeric-down")}}
+        <button class="button" type="button" {{action "reverseOrder" }}>
+            <FaIcon @icon={{if this.isResultsReversed "sort-numeric-up" "sort-numeric-down" }} />
         </button>
     </div>
 </nav>
 {{#unless this.results.length}}
     <div class="notification is-warning">
-        {{fa-icon "exclamation-triangle" classNames="is-large fa-lg"}}&nbsp;No Results
+        <FaIcon @icon="exclamation-triangle" classNames="is-large fa-lg" />&nbsp;No Results
     </div>
 {{/unless}}
 <div class="content">
-    <nav class="panel results {{if this.isResultsReversed "reversed"}}">
+    <nav class="panel results {{if this.isResultsReversed " reversed"}}">
         {{#each this.results as |result|}}
             <div class="panel-block">
                 {{result.place}}. {{result.entry.FirstName}} {{result.entry.LastName}}

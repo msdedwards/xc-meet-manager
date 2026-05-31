@@ -16,13 +16,13 @@ export default class MeetDownloadRoute extends Route {
       Gender: result.entry.Gender,
       Grade: result.entry.Grade,
       Team: result.entry.TeamName,
-      Division: result.entry.DivNum
+      Division: result.entry.DivNum,
     }));
     return unparse(data, {
       quotes: false,
       delimiter: ',',
       header: true,
-      newline: "\r\n",
+      newline: '\r\n',
       skipEmptyLines: true,
     });
   }
